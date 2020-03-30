@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+	<title>Metodos</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+	<style> input, hr, button { display: block; margin: 10px 0}</style>
+<body>
+
+		<div ng-controller="control">
+			
+					<input type="number" ng-model="valor1">			
+					<input type="number" ng-model="valor2">		
+
+					<button ng-click="sumar()"> Sumar </button>
+                    <button ng-click="multiplicar()"> Multiplicar </button>
+
+                    <hr>
+
+                    <p>
+                    	{{resultado}}
+                    </p>
+
+		</div>
+
+
+		<script type="text/javascript">
+			
+			var operacion= angular.module("myapp",[]);
+
+			operacion.controller("control",function($scope){
+
+					$scope.valor1 = 0;
+					$scope.valor2 = 0;
+
+					$scope.sumar = function(){
+
+						$scope.resultado = $scope.valor1 + $scope.valor2;
+					}
+
+					$scope.multiplicar = function(){
+
+						$scope.resultado = $scope.valor1 * $scope.valor2;
+					}	
+
+
+
+			});
+
+
+
+		</script>
+
+</body>
+</html>

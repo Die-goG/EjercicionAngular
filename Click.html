@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app = "myapp">
+<head>
+	<title>Evento Click</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body>
+
+		<div ng-controller="control" id="principal">
+			
+				<button ng-click="saludo()">Click</button>
+
+				<strong>Cantidad de clicks: {{conteoClicks}}</strong>
+
+				<p ng-click="saludo()">Tambien fucniona en parrafos</p>
+
+				<button ng-dblclick="saludo()"> Doble Click </button>
+
+		</div>
+
+
+		<script type="text/javascript">
+			
+				var app = angular.module("myapp",[]);
+
+				app.controller("control",function($scope){
+
+					$scope.conteoClicks = 0;
+
+					$scope.saludo = function(){
+
+							$scope.conteoClicks++;
+
+					};
+
+				});
+
+		</script>
+
+</body>
+</html>

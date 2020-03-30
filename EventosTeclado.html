@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app = "myapp">
+<head>
+	<title>Eventos del Teclado</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body ng-controller = "control">
+
+		<input type="text" ng-keydown="detectarTecla($event)" autofocus="true">
+
+			 {{estado}}
+
+	
+
+		<script type="text/javascript">
+			
+		var ap = angular.module("myapp",[]);
+
+		ap.controller("control",function($scope){
+
+			$scope.estado = "izquierda";
+
+				$scope.detectarTecla = function(e){
+
+						switch (e.keyCode) {
+													case 37:
+													$scope.estado = "izquierda";
+													break;
+													case 38:
+													$scope.estado = "arriba";
+													break;
+													case 39:
+													$scope.estado = "derecha";
+													break;
+													case 40:
+													$scope.estado = "abajo";
+													break;
+											}
+
+				};
+
+		})	
+
+		</script>
+</body>
+</html>

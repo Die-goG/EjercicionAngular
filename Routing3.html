@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <meta charset="utf-8"> 
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-route.min.js'></script>
+  <script src="//code.angularjs.org/1.2.19/i18n/angular-locale_es-es.js"></script>
+  <!-- <script src="script.js"></script> -->
+</head>
+ 
+<body>
+  <h1>Éste es el título y no cambia</h1>
+  <ul>
+    <li><a href="#pagina1">Ir a la pagina 1</a>
+    </li>
+    <li><a href="#pagina2">Ir a la pagina 2</a>
+    </li>
+    <li><a href="#pagina3">Ir a la pagina 3</a>
+    </li>
+  </ul>
+  <div ng-view></div>
+ 
+  <h3>Ésto es un pie y no cambia</h3>
+
+  <script type="text/javascript">
+    
+      var app = angular.module("app", ['ngRoute']);
+ 
+ 
+app.config(['$routeProvider',function($routeProvider) {
+   
+     
+      $routeProvider.when('/pagina1', {
+        templateUrl: "plantillas2/pagina1.html",
+        controller: "Pagina1Controller"
+      });
+       
+      $routeProvider.when('/pagina2', {
+        templateUrl: "plantillas2/pagina2.html",
+        controller: "Pagina2Controller"
+      });
+       
+      $routeProvider.when('/pagina3', {
+        templateUrl: "plantillas2/pagina3.html",
+        controller: "Pagina3Controller"
+      });  
+       
+      $routeProvider.otherwise({
+            redirectTo: '/pagina1'
+      });   
+     
+    }]);
+     
+     
+    app.controller("Pagina1Controller", ["$scope",function($scope) {
+       $scope.mensaje="Texto cargado desde el controlador Pagina1Controller";
+    }]);
+     
+    app.controller("Pagina2Controller", ["$scope",function($scope) {
+       $scope.mensaje="Texto cargado desde el controlador Pagina2Controller";
+    }]);
+     
+     
+    app.controller("Pagina3Controller", ["$scope",function($scope) {
+       $scope.mensaje="Texto cargado desde el controlador Pagina3Controller";
+    }]);
+
+  </script>
+
+
+</body>
+ 
+</html>

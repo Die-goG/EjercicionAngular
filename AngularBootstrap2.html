@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app = "operacion">
+<head>
+	<title>Angular Bootstrap</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap-4.4.1/dist/css/bootstrap.min">
+	<script type="text/javascript" src="angular-1.7.9\angular.min.js"></script>
+	<script src="js/jquery-2.2.0.min.js"></script>
+
+</head>
+<body ng-controller = "preguntasControl">
+
+
+	{{dato}}
+
+	<script type="text/javascript">
+		
+		var miapp =angular.module("operacion",[]);
+
+		miapp.controller("preguntasControl",function($scope){
+
+			$scope.dato = "Info";
+
+		})	
+
+	</script>
+
+</body>
+</html>

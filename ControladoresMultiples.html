@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+	<title>Controladores Multiples</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body>
+		<div ng-controller = "control1">
+			
+				{{datos1}}
+
+		</div>
+
+		<div ng-controller = "control2">
+			
+				{{datos1}}
+
+		</div>
+
+		<script type="text/javascript">
+			
+			var miapp = angular.module("myapp",[]);
+
+			miapp.controller("control1",function($scope){
+						$scope.datos1="Datos1";
+			});
+
+			miapp.controller("control2",function($scope){
+						$scope.datos1="Datos2";
+			});
+
+		</script>
+
+</body>
+</html>

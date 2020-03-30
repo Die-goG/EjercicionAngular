@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Eventos para Moviles</title>
+    <script src="https://code.angularjs.org/1.7.9/angular-touch.min.js"></script>
+	
+</head>
+<body>
+
+
+		<div id="cuadrado" ng-mouseenter="dentroDelDiv()" ng-mouseleave="fueraDelDiv()"\ng-swipe-left="swipeIzq()" ng-swipe-right="swipeDe()">
+		</div>
+
+		<script type="text/javascript">
+			
+			var miapp = angular.module("eventosApp",["ngTouch"]);
+			
+			$scope.swipeIzq = function(){
+
+				$scope.estado = "<--Swipe";
+
+			};			
+
+			$scope.swipeDe = function(){
+
+				$scope.estado = "Swipe-->"
+
+			};
+
+
+
+		</script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+	<title>Directivas Personalizadas</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body>
+
+	<div usuario></div>
+
+    <usuario nombre="Erik" apellido="Garcia"></usuario>
+
+	<script type="text/javascript">
+		
+		var app = angular.module("myapp",[]);
+
+		app.directive("usuario",function(){
+
+			var valoresInternos = {};
+
+			valoresInternos.scope={
+				nombreUsuario: "@nombre",
+				apellidoUsuario: "@apellido"
+			};
+
+			valoresInternos.template = "Bienvenidos ....{{nombreUsuario}} {{apellidoUsuario}}";
+			return valoresInternos;
+
+		})
+
+	</script>
+
+</body>
+</html>

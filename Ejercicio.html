@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+	<meta charset="utf-8">
+	<title>Filtros</title>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script> -->
+	<script type="text/javascript" src="/angular-1.7.9/angular.min.js"></script>
+
+
+</head>
+<body>
+
+		<h1 ng-controller="listas">
+		        {{var}}
+				<!-- {{var}}	 -->
+
+		</h1>
+
+		<script type="text/javascript">
+			
+				var miapp = angular.module("myapp",[]);
+
+				miapp.controller("listas",function($scope){
+
+						//$scope.frutas = ["Kiwi","Banano","Mango	"]
+						$scope.var = "test";
+				})
+																																															
+		</script>
+
+</body>
+</html>

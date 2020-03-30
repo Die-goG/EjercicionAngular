@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Routing</title>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-route.min.js'></script>
+    <script src="//code.angularjs.org/1.2.19/i18n/angular-locale_es-es.js"></script>
+	<style>
+		ul{margin: 0; padding: 0; margin: auto; width: 400px;}
+		li{float: left; height: 30px; list-style-type: none; width: 100px;}
+		a{display: block}
+		h2{color:red}
+		div{clear: both}
+	</style>
+</head>
+<body ng-app="routingApp">
+
+<div ng-include="'plantillas/menu.html'"></div>
+
+<div ng-view></div>
+
+<script type="text/javascript">
+
+var miRouting = angular.module('routingApp', ['ngRoute']);
+
+miRouting.config(['$routeProvider',function($routeProvider) {
+	
+	$routeProvider.when('/seccion1',{
+		templateUrl:'plantillas/seccion1.html'
+	}).when('/seccion2',{
+		templateUrl:'plantillas/seccion2.html'
+	}).otherwise({
+		redirectTo:'/'
+	});
+
+}]);
+
+</script>
+</body>
+</html>

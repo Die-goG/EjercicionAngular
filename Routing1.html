@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app = "myapp">
+<head>
+	<meta charset="utf-8">
+	<title>Routing HTML</title>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-route.min.js"></script>
+   	<script src="/controladorseccion1.js"></script>
+
+	<style>
+
+		ul{margin: 0; padding: 0; margin: auto; width: 400px;}
+		li{float: left; height: 30px; list-style-type: none; width: 100px;}
+		a{display: block}
+		h2{color:red}
+		div{clear: both}
+
+	</style>
+
+
+</head>
+<body>
+
+		<div id="menu" ng-include="'plantillas/menu.html'"></div>
+        <div ng-view></div>
+
+		<script type="text/javascript">
+			
+				var miRouting = angular.module('myapp',['ngRoute']);
+
+				miRouting.controller('miControlador',function($scope,$routeParams){
+
+					$scope.titulo = 'Catalogo de pntalones';
+					$scope.colorActual = $routeParams.color;
+
+				});
+
+				miRouting.config(["$routeProvider",function($routeProvider){
+
+
+							//***  definimos las rutas dinamicas***//
+							$routeProvider.when('/pantalones/:color',{ //solo en este enlace se aplica las rutas dinamicas 
+											templateUrl:'plantillas/detalles.html',
+											controller:'miControlador' //nombre del controlador
+										}).when('/seccion2',{
+											templateUrl:'plantillas/seccion2.html', //en este enlace el direccionamiento se hace a seccion2.html
+										    controller:'miControlador' //nombre del controlador
+										}).otherwise({
+											redirectTo:'/',
+											templateUrl:'plantillas/inicio.html'
+										});
+
+				}]);
+
+				// miRouting.config(["$routeProvider",function($routeProvider){
+
+				// 			//***  definimos las rutas ***//
+				// 			$routeProvider.when('/seccion1',{
+				// 							templateUrl:'plantillas/seccion1.html', //url del trozo de html que vamos a cargar
+				// 							controller:'miControlador' //nombre del controlador
+				// 						}).when('/seccion2',{
+				// 							templateUrl:'plantillas/seccion2.html'
+				// 						}).otherwise({
+				// 							redirectTo:'/',
+				// 							templateUrl:'plantillas/inicio.html'
+				// 						});
+
+				// }]);
+
+		</script>
+
+</body>
+</html>

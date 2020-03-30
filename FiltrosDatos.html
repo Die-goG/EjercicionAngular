@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="filtrarListas">
+<head>
+	<title>Filtro de Datos "pleca |"</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+
+</head>
+<body>
+	    <input type="text" ng-model="buscaFruta">
+		
+		<div ng-controller="listas">
+			<ul>
+			<li ng-repeat="fruta in frutas | filter:buscaFruta">{{fruta}}</li>	
+			</ul>
+		</div>
+
+
+		<script type="text/javascript">
+			
+			var miApp = angular.module("filtrarListas",[]);
+
+			miApp.controller("listas",function($scope){
+
+					$scope.frutas = ["kiwi","banano","manzana"];
+
+			});
+
+
+		</script>
+
+</body>
+</html>

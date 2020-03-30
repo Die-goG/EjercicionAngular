@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+	<title>Manipulacion de datos</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body ng-controller = "control">
+
+
+		<ul>
+				<li ng-repeat = "dt in datos" ng-click="mostrarDatos(dt)">{{dt}}</li>
+				<hr>	
+				<input type="text" ng-model="nuevoItem">
+				<button ng-click="agregar()">Guardar</button>
+				<hr>
+
+				<li ng-repeat = "he in heroes" ng-click="mostrarDatos(he.apellido)">{{he.apellido}}</li>	
+		</ul>
+
+
+		<script type="text/javascript">
+			
+			var coleccionDatos = angular.module("myapp",[]);
+			coleccionDatos.controller("control",function($scope){
+
+					$scope.datos = ["piedra","papel","tijera"];
+
+					$scope.agregar = function(){
+
+						$scope.datos.push($scope.nuevoItem);
+					}
+
+					$scope.mostrarDatos = function(info){
+
+						alert("Elegiste :"+info);
+					}
+
+					$scope.heroes = [
+										 { nombre:"Arnold", apellido:"Schwarzenegger"},
+										 { nombre:"Chuck", apellido:"Norris"},
+										 { nombre:"Bruce", apellido:"Lee"}
+								    ]
+
+			});
+
+		</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="operacion">
+<head>
+    <meta charset="utf-8">
+	<title>Angular y bootstrap</title>
+
+
+    <!-- 	 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>  
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
+	
+ 	 -->
+   
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">   
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/angular-1.7.9\angular.min.js"></script> 
+	<script src="/js/jquery-3.4.1.min.js"></script>
+
+    
+
+</head>
+<body>
+
+<div class="container text-center" ng-controller="preguntasController">
+	
+	<div class="jumbotron">
+		<h1>Angular JS + Bootstrap</h1>
+	</div>
+	
+	<div class="panel panel-default col-sm-6 col-sm-offset-3">
+		<div class="panel-body">
+			<p>¿Cuál es el resultado de la siguiente operación 6*9-12?</p>
+			<p id="resultado"></p>
+			<button class="btn btn-primary" data-toggle="modal" data-target=".ventanaModal" ng-click="respuesta()">Calcular</button>
+		</div>
+	</div>
+
+
+	<div class="modal fade ventanaModal">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				
+				<h1>{{resultado}}</h1>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+	
+var miApp = angular.module('operacion', []);
+
+miApp.controller('preguntasController', function ($scope) {
+
+		$scope.respuesta = function(){
+			$scope.resultado = 6*9-12;
+			$('#resultado').text("El resultado es: "+ $scope.resultado);
+		}
+	
+});
+
+</script>
+</body>
+</html>

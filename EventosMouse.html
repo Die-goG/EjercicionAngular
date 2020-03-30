@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+	<title>Eventos del Mouse</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+	<style type="text/css">
+          #cuadrado{ background: red; width: 100px; height: 100px; margin: 30px 10\px;}
+    </style>
+
+</head>
+<body ng-controller="control">
+
+		<div id="cuadrado" ng-mouseenter="dentroDeldiv()" ng-mouseleave="fueraDeldiv()">
+			
+		</div>
+
+		<strong>Estado:{{estado}}</strong>
+
+		<script type="text/javascript">
+			
+				var app = angular.module("myapp",[]);
+
+				app.controller("control",function ($scope){
+
+					$scope.estados="zzzz";
+
+					$scope.dentroDeldiv = function(){
+
+						$scope.estado="MouseEnter activo";
+
+					};	
+
+					$scope.fueraDeldiv = function(){
+
+						$scope.estado = "MouseOver activo";
+					};
+				});
+
+		</script>
+
+</body>
+</html>

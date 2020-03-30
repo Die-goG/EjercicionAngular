@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app = "preguntas">
+<head>
+	<meta charset="utf-8">
+	<title>Angular Bootstrap</title>
+
+	<link rel="stylesheet" href="/css/bootstrap.min.css">   
+    <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/angular-1.7.9\angular.min.js"></script> 
+	<script src="/js/jquery-3.4.1.min.js"></script>
+
+</head>
+<body>
+
+	<div class= "conteiner text-center" ng-controller="preguntasController">
+
+		<div>
+			
+				<h1>Angular JS + Bootstrap</h1>	
+				<h1>{{respuestaDefinitiva}}</h1>
+
+		</div>
+
+		<div class="panel panel-default col-sm-6 col-sm-offset-3">
+
+				<div class="panel-body ">
+						 <p>¿Cuál es el sentido de la vida, el universo y todo lo demás?</p>
+						 <button class="btn btn-primary" data-toggle="modal" data-target=".ventanaModal" ng-click="responder()">Calcular</button>
+				</div>   
+
+		</div>
+
+		<div class="modal fade ventanaModal">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+							<h1>¿?</h1>
+					</div>
+				</div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript">
+		
+		var miApp = angular.module("preguntas",[]);
+
+		miApp.controller("preguntasController",function($scope){
+
+				$scope.responder = function(){
+
+					$scope.respuestaDefinitiva = 6*9-12;
+				
+				}
+
+		});
+
+	</script>
+
+</body>
+</html>

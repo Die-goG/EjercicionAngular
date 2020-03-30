@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="filtros">
+<head>
+	<title>Filtro personalizados</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body ng-filter="cambiavocal">
+
+		<h1>{{ "protocolo" | cambiavocal }}</h1> <!-- llamamos a las funcion para cambiar las letras -->
+
+		<script type="text/javascript">
+			
+			var filtroApp = angular.module('filtros', []);
+
+			filtroApp.filter("cambiavocal",function(){
+
+					var cambiaVocalFiltro = function (datosOriginales,argumento){
+
+						var nuevoDatos = datosOriginales.replace(RegExp("o","g"),"-");
+
+						return nuevoDatos;
+					}
+
+				return cambiaVocalFiltro;
+
+		})
+
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Modificar Estilos</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+	<style>
+			 img {
+					 display: block;
+					 margin: auto
+					 }
+					 .preguntas {
+						 width: 400px;
+						 margin: 30px auto;
+						 background: silver;
+						 padding: 20px;
+						 text-align: center
+			         }
+			         .preguntass {
+						 width: 400px;
+						 margin: 30px auto;
+						 background: silver;
+						 padding: 20px;
+						 text-align: center
+			         }
+    </style>
+</head>
+<body ng-app="estilosApp">
+				<div ng-controller="controladorEstilos">
+
+					<div ng-switch="opcion">
+						<h2 ng-switch-when="a">¡Gato Feliz!</h2>
+ 						<h2 ng-switch-when="b">Mal día para ser gato en este universo</h2>
+					</div>	
+
+
+
+					<img ng-src="{{imagenActiva}}">
+
+							 <div id="contenedorCaja" ng-hide="ocultarMenu">
+							         
+							         <h1>{{dato}}</h1>
+					 				 	
+							 </div>
+
+							 <div class="preguntas" ng-style="estilosAngular" ng-class="clasesAngular">
+							
+									 <button ng-click="opcionA()">Opción A</button>
+									 <button ng-click="opcionB()">Opción B</button>
+									 <hr>
+
+									 <button ng-click="cambiarEstilo()">Cambiar Estilo</button>
+									 <button ng-click="cambiarClase()">Cambiar Clase</button>
+
+									 <hr>
+									 <button ng-click="ocultarCaja()">Ocultar Caja</button>
+									 <button ng-click="mostrarCaja()">Mostrar Caja</button>
+
+							 </div>
+
+				</div>
+
+
+		<script type="text/javascript">
+			
+				var misEstilos = angular.module("estilosApp",[]);
+
+				misEstilos.controller("controladorEstilos",function($scope){
+
+
+					$scope.opcionA = function(){
+
+								$scope.imagenActiva = "img/SAM.png";
+								$scope.opcion="a";
+					}
+
+					$scope.opcionB = function(){
+
+						        $scope.imagenActiva = "img/internet.png";
+						        $scope.opcion="b";
+					}
+
+					$scope.cambiarEstilo = function(){
+
+								$scope.estilosAngular = {
+
+									width:"600px",
+									height:"200px",
+									borderRadius:"10px"
+								}
+					}
+
+					$scope.cambiarClase = function(){  //no funciona
+
+						        $scope.clasesAngular = "segundoEstilo";
+						        $scope.dato = "cambiarClase";
+					}
+
+					$scope.ocultarCaja = function(){
+
+								$scope.ocultarMenu = true;
+					}
+
+					$scope.mostrarCaja = function(){
+
+								$scope.ocultarMenu = false;
+					}
+
+				});
+
+		</script>
+
+</body>
+</html>
+
+					 				 <!-- <img src="img\SAM.png">	 -->
